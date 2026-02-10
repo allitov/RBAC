@@ -14,6 +14,10 @@ public record User(String username, String fullName, String email) {
         validate(username, fullName, email);
     }
 
+    public String format() {
+        return String.format("%s (%s) <%s>", username, fullName, email);
+    }
+
     private String normalize(String value) {
         return value != null ? value.trim() : null;
     }

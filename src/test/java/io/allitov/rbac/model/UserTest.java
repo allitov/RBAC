@@ -88,6 +88,16 @@ class UserTest {
     }
 
     @Test
+    @DisplayName("Should return formatted string with all user data")
+    void shouldReturnFormattedString() {
+        User user = new User("j_doe", "John Doe", "john@example.com");
+
+        String result = user.format();
+
+        assertThat(result).isEqualTo("j_doe (John Doe) <john@example.com>");
+    }
+
+    @Test
     @DisplayName("Should verify equality of two identical user records")
     void shouldVerifyEquality() {
         User user1 = new User("bob_builder", "Bob", "bob@build.com");
