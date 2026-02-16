@@ -74,7 +74,7 @@ class RoleTest {
     void equalsAndHashCodeShouldBeBasedOnId() {
         Role anotherRole = new Role("ADMIN", "System Administrator");
 
-        assertThat(role).isNotEqualTo(anotherRole).doesNotHaveSameClassAs(anotherRole);
+        assertThat(role).isNotEqualTo(anotherRole).doesNotHaveSameHashCodeAs(anotherRole);
     }
 
     @Test
