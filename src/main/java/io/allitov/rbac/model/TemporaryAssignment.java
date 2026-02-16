@@ -1,5 +1,7 @@
 package io.allitov.rbac.model;
 
+import static io.allitov.rbac.model.AssignmentType.TEMPORARY;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 
@@ -22,7 +24,7 @@ public class TemporaryAssignment extends AbstractRoleAssignment {
 
     @Override
     public String assignmentType() {
-        return "TEMPORARY";
+        return TEMPORARY.getValue();
     }
 
     public void extend(String newExpirationDate) {
