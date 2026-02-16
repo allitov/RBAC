@@ -7,7 +7,10 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 class AbstractRoleAssignmentTest {
 
     private User mockUser;
@@ -19,7 +22,7 @@ class AbstractRoleAssignmentTest {
         private final boolean active;
         private final String type;
 
-        protected TestRoleAssignment(User user, Role role, AssignmentMetadata metadata, boolean active, String type) {
+        public TestRoleAssignment(User user, Role role, AssignmentMetadata metadata, boolean active, String type) {
             super(user, role, metadata);
             this.active = active;
             this.type = type;
