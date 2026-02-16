@@ -8,11 +8,13 @@ repositories {
 }
 
 val assertJVersion = "3.27.7"
+val mockitoVersion = "5.21.0"
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.assertj:assertj-core:$assertJVersion")
+    testImplementation("org.mockito:mockito-junit-jupiter:$mockitoVersion")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
