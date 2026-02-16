@@ -1,20 +1,24 @@
 package io.allitov.rbac.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class AbstractRoleAssignmentTest {
 
+    @Mock
     private User mockUser;
+
+    @Mock
     private Role mockRole;
+
+    @Mock
     private AssignmentMetadata mockMetadata;
 
     private static class TestRoleAssignment extends AbstractRoleAssignment {
@@ -37,13 +41,6 @@ class AbstractRoleAssignmentTest {
         public String assignmentType() {
             return type;
         }
-    }
-
-    @BeforeEach
-    void setUp() {
-        mockUser = mock(User.class);
-        mockRole = mock(Role.class);
-        mockMetadata = mock(AssignmentMetadata.class);
     }
 
     @Test
