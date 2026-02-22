@@ -1,4 +1,4 @@
-package io.allitov.rbac.model;
+package io.allitov.rbac.model.role;
 
 public record Permission(String name, String resource, String description) {
 

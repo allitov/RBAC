@@ -1,6 +1,9 @@
-package io.allitov.rbac.model;
+package io.allitov.rbac.model.assignment;
 
-import static io.allitov.rbac.model.AssignmentType.TEMPORARY;
+import io.allitov.rbac.model.role.Role;
+import io.allitov.rbac.model.user.User;
+
+import static io.allitov.rbac.model.assignment.AssignmentType.TEMPORARY;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

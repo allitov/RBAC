@@ -1,4 +1,4 @@
-package io.allitov.rbac.model;
+package io.allitov.rbac.model.role;
 
 import java.util.Collections;
 import java.util.HashSet;

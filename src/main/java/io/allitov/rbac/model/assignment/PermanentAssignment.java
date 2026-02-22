@@ -1,6 +1,9 @@
-package io.allitov.rbac.model;
+package io.allitov.rbac.model.assignment;
 
-import static io.allitov.rbac.model.AssignmentType.PERMANENT;
+import io.allitov.rbac.model.role.Role;
+import io.allitov.rbac.model.user.User;
+
+import static io.allitov.rbac.model.assignment.AssignmentType.PERMANENT;
 
 @SuppressWarnings("java:S2160")
 public class PermanentAssignment extends AbstractRoleAssignment {

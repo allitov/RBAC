@@ -1,6 +1,6 @@
 package io.allitov.rbac.filter.user;
 
-import io.allitov.rbac.model.User;
+import io.allitov.rbac.model.user.User;
 import java.util.Objects;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

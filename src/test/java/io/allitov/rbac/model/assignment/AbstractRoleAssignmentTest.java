@@ -1,8 +1,10 @@
-package io.allitov.rbac.model;
+package io.allitov.rbac.model.assignment;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+import io.allitov.rbac.model.role.Role;
+import io.allitov.rbac.model.user.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
