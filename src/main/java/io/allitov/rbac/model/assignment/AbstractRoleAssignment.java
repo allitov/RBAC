@@ -2,7 +2,6 @@ package io.allitov.rbac.model.assignment;
 
 import io.allitov.rbac.model.role.Role;
 import io.allitov.rbac.model.user.User;
-
 import java.util.Objects;
 import java.util.UUID;
 

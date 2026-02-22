@@ -2,10 +2,9 @@ package io.allitov.rbac.model.assignment;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.time.LocalDateTime;
-
 import io.allitov.rbac.model.role.Role;
 import io.allitov.rbac.model.user.User;
+import java.time.LocalDateTime;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
