@@ -48,4 +48,12 @@ public class TemporaryAssignment extends AbstractRoleAssignment {
     public String summary() {
         return super.summary() + String.format("%nExpires at: %s", expiresAt);
     }
+
+    public String getExpiresAt() {
+        return expiresAt;
+    }
+
+    public boolean isAutoRenew() {
+        return autoRenew;
+    }
 }
