@@ -7,15 +7,19 @@ repositories {
     mavenCentral()
 }
 
+val commonsLangVersion = "3.20.0"
+val jetbrainsAnnotationsVersion = "26.1.0"
 val assertJVersion = "3.27.7"
 val mockitoVersion = "5.21.0"
 
 dependencies {
+    implementation("org.apache.commons:commons-lang3:$commonsLangVersion")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.assertj:assertj-core:$assertJVersion")
     testImplementation("org.mockito:mockito-junit-jupiter:$mockitoVersion")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    compileOnly("org.jetbrains:annotations:$jetbrainsAnnotationsVersion")
 }
 
 configure<JavaPluginExtension> {

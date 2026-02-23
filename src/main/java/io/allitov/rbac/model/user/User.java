@@ -1,4 +1,4 @@
-package io.allitov.rbac.model;
+package io.allitov.rbac.model.user;
 
 import java.util.regex.Pattern;
 

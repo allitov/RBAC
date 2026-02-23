@@ -1,4 +1,6 @@
-package io.allitov.rbac.model;
+package io.allitov.rbac.model.role;
+
+import org.apache.commons.lang3.Strings;
 
 public record Permission(String name, String resource, String description) {
 
@@ -41,6 +43,6 @@ public record Permission(String name, String resource, String description) {
     }
 
     public boolean matches(String namePattern, String resourcePattern) {
-        return name.contains(namePattern) && resource.contains(resourcePattern);
+        return Strings.CI.contains(name, namePattern) && Strings.CI.contains(resource, resourcePattern);
     }
 }

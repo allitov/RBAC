@@ -1,4 +1,4 @@
-package io.allitov.rbac.model;
+package io.allitov.rbac.model.assignment;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.within;
