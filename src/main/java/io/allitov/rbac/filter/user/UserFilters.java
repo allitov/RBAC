@@ -7,10 +7,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Набор статических фильтров для работы с объектами {@code User}.
+ * Утилитарный класс, предоставляющий набор статических фабричных методов для создания объектов {@link UserFilter}.
  * <p>
- * Класс является утилитарным и не предназначен для создания экземпляров.
- * Все методы возвращают функциональный интерфейс {@link UserFilter}.
+ * Класс не предназначен для создания экземпляров. Все методы возвращают неизменяемые
+ * фильтры и "чистые" (pure) фильтры, предназначенные для проверки объектов пользователей в рамках логики RBAC.
  */
 public final class UserFilters {
 
@@ -19,10 +19,10 @@ public final class UserFilters {
     }
 
     /**
-     * Создает фильтр для поиска пользователя по точному совпадению имени (username).
+     * Создает фильтр для поиска пользователя по точному совпадению имени пользователя (username).
      *
      * @param username имя пользователя для сравнения.
-     * @return фильтр, проверяющий username.
+     * @return {@link UserFilter}, возвращающий {@code true}, если {@code username} совпадает с именем пользователя.
      */
     @NotNull
     @Contract(pure = true)
@@ -32,10 +32,11 @@ public final class UserFilters {
 
     /**
      * Создает фильтр для поиска пользователя, чье имя (username) содержит указанную подстроку.
-     * Поиск выполняется без учета регистра (Case-Insensitive).
+     * <p>
+     * Поиск выполняется без учета регистра (case-insensitive).
      *
      * @param substring подстрока для поиска.
-     * @return фильтр для частичного поиска по username.
+     * @return {@link UserFilter} для частичного поиска по имени пользователя без учета регистра.
      */
     @NotNull
     @Contract(pure = true)
@@ -44,23 +45,24 @@ public final class UserFilters {
     }
 
     /**
-     * Создает фильтр для поиска пользователя по точному совпадению email.
+     * Создает фильтр для поиска пользователя по точному совпадению адреса электронной почты.
      *
-     * @param email адрес электронной почты.
-     * @return фильтр, проверяющий email.
+     * @param email адрес электронной почты для сравнения.
+     * @return {@link UserFilter}, проверяющий полное совпадение email.
      */
     @NotNull
     @Contract(pure = true)
-    public static UserFilter byEmail(String email) {
+    public static UserFilter byEmail(@Nullable String email) {
         return user -> Objects.equals(user.email(), email);
     }
 
     /**
      * Создает фильтр для фильтрации пользователей по домену электронной почты.
-     * Сравнение выполняется с учетом регистра (Case-Sensitive).
+     * <p>
+     * Сравнение выполняется с учетом регистра (case-sensitive).
      *
      * @param domain домен (например, "gmail.com").
-     * @return фильтр, проверяющий окончание адреса электронной почты.
+     * @return {@link UserFilter}, проверяющий, заканчивается ли email пользователя на указанный домен.
      */
     @NotNull
     @Contract(pure = true)
@@ -70,10 +72,11 @@ public final class UserFilters {
 
     /**
      * Создает фильтр для поиска по полному имени пользователя.
-     * Сравнение выполняется с учетом регистра (Case-Sensitive).
+     * <p>
+     * Сравнение выполняется с учетом регистра (case-sensitive).
      *
      * @param substring подстрока для поиска в полном имени.
-     * @return фильтр для частичного поиска по full name.
+     * @return {@link UserFilter} для частичного поиска в полном имени пользователя.
      */
     @NotNull
     @Contract(pure = true)
