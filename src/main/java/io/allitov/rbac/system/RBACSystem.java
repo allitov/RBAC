@@ -1,4 +1,4 @@
-package io.allitov.system;
+package io.allitov.rbac.system;
 
 import io.allitov.rbac.model.assignment.AssignmentMetadata;
 import io.allitov.rbac.model.assignment.PermanentAssignment;
