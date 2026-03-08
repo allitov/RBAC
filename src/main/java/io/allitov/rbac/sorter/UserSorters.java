@@ -1,4 +1,4 @@
-package io.allitov.rbac.sorter.user;
+package io.allitov.rbac.sorter;
 
 import io.allitov.rbac.model.user.User;
 import java.util.Comparator;
@@ -24,7 +24,7 @@ public final class UserSorters {
     @NotNull
     @Contract(pure = true)
     public static Comparator<User> byUsername() {
-        return Comparator.comparing(User::username);
+        return Comparator.comparing(User::getUsername);
     }
 
     /**
@@ -35,7 +35,7 @@ public final class UserSorters {
     @NotNull
     @Contract(pure = true)
     public static Comparator<User> byFullName() {
-        return Comparator.comparing(User::fullName);
+        return Comparator.comparing(User::getFullName);
     }
 
     /**
@@ -46,6 +46,6 @@ public final class UserSorters {
     @NotNull
     @Contract(pure = true)
     public static Comparator<User> byEmail() {
-        return Comparator.comparing(User::email);
+        return Comparator.comparing(User::getEmail);
     }
 }

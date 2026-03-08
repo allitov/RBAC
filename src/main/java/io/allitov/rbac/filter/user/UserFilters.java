@@ -27,7 +27,7 @@ public final class UserFilters {
     @NotNull
     @Contract(pure = true)
     public static UserFilter byUsername(@Nullable String username) {
-        return user -> Objects.equals(user.username(), username);
+        return user -> Objects.equals(user.getUsername(), username);
     }
 
     /**
@@ -41,7 +41,7 @@ public final class UserFilters {
     @NotNull
     @Contract(pure = true)
     public static UserFilter byUsernameContains(@Nullable String substring) {
-        return user -> Strings.CI.contains(user.username(), substring);
+        return user -> Strings.CI.contains(user.getUsername(), substring);
     }
 
     /**
@@ -53,7 +53,7 @@ public final class UserFilters {
     @NotNull
     @Contract(pure = true)
     public static UserFilter byEmail(@Nullable String email) {
-        return user -> Objects.equals(user.email(), email);
+        return user -> Objects.equals(user.getEmail(), email);
     }
 
     /**
@@ -67,7 +67,7 @@ public final class UserFilters {
     @NotNull
     @Contract(pure = true)
     public static UserFilter byEmailDomain(@Nullable String domain) {
-        return user -> Strings.CS.endsWith(user.email(), domain);
+        return user -> Strings.CS.endsWith(user.getEmail(), domain);
     }
 
     /**
@@ -81,6 +81,6 @@ public final class UserFilters {
     @NotNull
     @Contract(pure = true)
     public static UserFilter byFullNameContains(@Nullable String substring) {
-        return user -> Strings.CS.contains(user.fullName(), substring);
+        return user -> Strings.CS.contains(user.getFullName(), substring);
     }
 }

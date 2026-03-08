@@ -1,4 +1,4 @@
-package io.allitov.rbac.sorter.assignment;
+package io.allitov.rbac.sorter;
 
 import io.allitov.rbac.model.assignment.RoleAssignment;
 import java.time.LocalDateTime;
@@ -20,12 +20,12 @@ public final class AssignmentSorters {
     /**
      * Возвращает компаратор для сортировки назначений по имени пользователя (username) в алфавитном порядке.
      *
-     * @return {@link Comparator} для сравнения назначений на основе {@code assignment.user().username()}.
+     * @return {@link Comparator} для сравнения назначений на основе {@code assignment.user().getUsername()}.
      */
     @NotNull
     @Contract(pure = true)
     public static Comparator<RoleAssignment> byUsername() {
-        return Comparator.comparing(assignment -> assignment.user().username());
+        return Comparator.comparing(assignment -> assignment.user().getUsername());
     }
 
     /**
@@ -44,15 +44,14 @@ public final class AssignmentSorters {
      * <p>
      * Сортировка производится от более старых назначений к более новым.
      *
-     * @return {@link Comparator}, сравнивающий даты из {@code assignment.metadata().assignedAt()}.
-     * @throws java.time.format.DateTimeParseException если строка даты имеет неверный формат.
+     * @return {@link Comparator}, сравнивающий даты из {@code assignment.metadata().getAssignedAt()}.
      */
     @NotNull
     @Contract(pure = true)
     public static Comparator<RoleAssignment> byAssignmentDate() {
         return (a1, a2) -> {
-            LocalDateTime d1 = LocalDateTime.parse(a1.metadata().assignedAt());
-            LocalDateTime d2 = LocalDateTime.parse(a2.metadata().assignedAt());
+            LocalDateTime d1 = a1.metadata().getAssignedAt();
+            LocalDateTime d2 = a2.metadata().getAssignedAt();
             return d1.compareTo(d2);
         };
     }

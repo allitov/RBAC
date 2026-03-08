@@ -1,4 +1,4 @@
-package io.allitov.rbac.sorter.role;
+package io.allitov.rbac.sorter;
 
 import io.allitov.rbac.model.role.Role;
 import java.util.Comparator;
