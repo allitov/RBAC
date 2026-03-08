@@ -4,7 +4,6 @@ import io.allitov.rbac.filter.role.RoleFilter;
 import io.allitov.rbac.filter.role.RoleFilters;
 import io.allitov.rbac.model.role.Role;
 import io.allitov.rbac.repository.Repository;
-
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -60,15 +59,11 @@ public class RoleRepository implements Repository<Role, String> {
     }
 
     public List<Role> findByFilter(RoleFilter filter) {
-        return ROLE_BASE.values().stream()
-                .filter(filter::test)
-                .toList();
+        return ROLE_BASE.values().stream().filter(filter::test).toList();
     }
 
     public List<Role> findAll(RoleFilter filter, Comparator<Role> sorter) {
-        return findByFilter(filter).stream()
-                .sorted(sorter)
-                .toList();
+        return findByFilter(filter).stream().sorted(sorter).toList();
     }
 
     public void update(Role role) {
