@@ -4,18 +4,14 @@ import io.allitov.rbac.model.validator.Validator;
 import io.allitov.rbac.model.validator.impl.UserValidator;
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 
 @Data
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class User {
 
     @Getter(AccessLevel.NONE)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private static final Validator<User> VALIDATOR = new UserValidator();
 
     private final String username;

@@ -5,18 +5,14 @@ import io.allitov.rbac.model.validator.impl.AssignmentMetadataValidator;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 
 @Data
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class AssignmentMetadata {
 
     @Getter(AccessLevel.NONE)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private static final Validator<AssignmentMetadata> VALIDATOR = new AssignmentMetadataValidator();
 
     private final String assignedBy;

@@ -4,10 +4,8 @@ import io.allitov.rbac.model.validator.Validator;
 import io.allitov.rbac.model.validator.impl.PermissionValidator;
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Strings;
 
@@ -16,8 +14,6 @@ import org.apache.commons.lang3.Strings;
 public class Permission {
 
     @Getter(AccessLevel.NONE)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private static final Validator<Permission> VALIDATOR = new PermissionValidator();
 
     private final String name;

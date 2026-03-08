@@ -10,7 +10,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 
 @Data
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
@@ -18,7 +17,6 @@ import lombok.ToString;
 public class Role {
 
     @Getter(AccessLevel.NONE)
-    @ToString.Exclude
     private static final Validator<Role> VALIDATOR = new RoleValidator();
 
     @EqualsAndHashCode.Include
