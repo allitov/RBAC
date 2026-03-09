@@ -27,5 +27,10 @@ public final class CommandRegistry {
                 "user-update", "Обновить данные пользователя. Аргументы: username.", new UserUpdateCommand());
         parser.registerCommand("user-delete", "Удалить пользователя. Аргументы: username.", new UserDeleteCommand());
         parser.registerCommand("user-search", "Найти всех пользователей по фильтрам.", new UserSearchCommand());
+
+        // util commands
+        parser.registerCommand("help", "Выводит все команды с описанием.", (_, _, _) -> parser.printHelp());
+        parser.registerCommand("stats", "Выводит статистику системы.", (_, system, _) -> system.generateStatistics());
+        parser.registerCommand("exit", "Выйти из программы.", (_, _, _) -> System.exit(0));
     }
 }
