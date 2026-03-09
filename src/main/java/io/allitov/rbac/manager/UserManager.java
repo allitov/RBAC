@@ -44,8 +44,8 @@ public class UserManager {
         userRepository.add(item);
     }
 
-    public boolean remove(User user) {
-        return userRepository.remove(user.getUsername());
+    public boolean remove(String username) {
+        return userRepository.remove(username);
     }
 
     public int count() {

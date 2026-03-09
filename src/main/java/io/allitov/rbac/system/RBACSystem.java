@@ -61,7 +61,11 @@ public class RBACSystem {
     }
 
     public String generateStatistics() {
-        return "RBAC System statistics%nUsers count: %d%nRoles count: %d%nAssignments count: %d%n"
-                .formatted(userManager.count(), roleManager.count(), assignmentManager.count());
+        return """
+               Статистика системы:
+               - Пользователей: %d
+               - Ролей: %d
+               - Назначений: %d
+               """.formatted(userManager.count(), roleManager.count(), assignmentManager.count());
     }
 }
