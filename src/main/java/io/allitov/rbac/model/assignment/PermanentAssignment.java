@@ -4,8 +4,11 @@ import static io.allitov.rbac.model.assignment.AssignmentType.PERMANENT;
 
 import io.allitov.rbac.model.role.Role;
 import io.allitov.rbac.model.user.User;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@SuppressWarnings("java:S2160")
+@Data
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 public class PermanentAssignment extends AbstractRoleAssignment {
 
     private boolean revoked = false;
@@ -26,9 +29,5 @@ public class PermanentAssignment extends AbstractRoleAssignment {
 
     public void revoke() {
         revoked = true;
-    }
-
-    public boolean isRevoked() {
-        return revoked;
     }
 }

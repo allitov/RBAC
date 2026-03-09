@@ -6,22 +6,23 @@ import io.allitov.rbac.model.role.Role;
 import io.allitov.rbac.model.user.User;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@SuppressWarnings("java:S2160")
+@Data
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 public class TemporaryAssignment extends AbstractRoleAssignment {
 
-    private String expiresAt;
-    private final boolean autoRenew;
+    private LocalDateTime expiresAt;
 
-    public TemporaryAssignment(User user, Role role, AssignmentMetadata metadata, String expiresAt, boolean autoRenew) {
+    public TemporaryAssignment(User user, Role role, AssignmentMetadata metadata, LocalDateTime expiresAt) {
         super(user, role, metadata);
         this.expiresAt = expiresAt;
-        this.autoRenew = autoRenew;
     }
 
     @Override
     public boolean isActive() {
-        return LocalDateTime.now().isBefore(LocalDateTime.parse(expiresAt));
+        return LocalDateTime.now().isBefore(expiresAt);
     }
 
     @Override
@@ -29,31 +30,21 @@ public class TemporaryAssignment extends AbstractRoleAssignment {
         return TEMPORARY.getValue();
     }
 
-    public void extend(String newExpirationDate) {
+    public void extend(LocalDateTime newExpirationDate) {
         this.expiresAt = newExpirationDate;
     }
 
     public boolean isExpired() {
-        return LocalDateTime.now().isAfter(LocalDateTime.parse(expiresAt));
+        return LocalDateTime.now().isAfter(expiresAt);
     }
 
     public String getTimeRemaining() {
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime expires = LocalDateTime.parse(expiresAt);
-
-        return "Seconds left: " + Duration.between(now, expires).toSeconds();
+        return "Seconds left: " + Duration.between(now, expiresAt).toSeconds();
     }
 
     @Override
     public String summary() {
-        return super.summary() + String.format("%nExpires at: %s", expiresAt);
-    }
-
-    public String getExpiresAt() {
-        return expiresAt;
-    }
-
-    public boolean isAutoRenew() {
-        return autoRenew;
+        return super.summary() + "%nExpires at: %s".formatted(expiresAt);
     }
 }

@@ -45,7 +45,7 @@ public final class AssignmentFilters {
     @NotNull
     @Contract(pure = true)
     public static AssignmentFilter byUsername(@Nullable String username) {
-        return assignment -> Strings.CS.equals(assignment.user().username(), username);
+        return assignment -> Strings.CS.equals(assignment.user().getUsername(), username);
     }
 
     /**
@@ -116,7 +116,7 @@ public final class AssignmentFilters {
     @NotNull
     @Contract(pure = true)
     public static AssignmentFilter assignedBy(@Nullable String username) {
-        return assignment -> Strings.CS.equals(assignment.metadata().assignedBy(), username);
+        return assignment -> Strings.CS.equals(assignment.metadata().getAssignedBy(), username);
     }
 
     /**
@@ -132,8 +132,7 @@ public final class AssignmentFilters {
     @Contract(pure = true)
     public static AssignmentFilter assignedAfter(@NotNull String date) {
         Objects.requireNonNull(date, "The 'date' must not be null");
-        return assignment ->
-                LocalDateTime.parse(assignment.metadata().assignedAt()).isAfter(LocalDateTime.parse(date));
+        return assignment -> assignment.metadata().getAssignedAt().isAfter(LocalDateTime.parse(date));
     }
 
     /**
@@ -150,11 +149,7 @@ public final class AssignmentFilters {
     @Contract(pure = true)
     public static AssignmentFilter expiringBefore(@NotNull String date) {
         Objects.requireNonNull(date, "The 'date' must not be null");
-        return assignment -> {
-            if (assignment instanceof TemporaryAssignment ta) {
-                return LocalDateTime.parse(ta.getExpiresAt()).isBefore(LocalDateTime.parse(date));
-            }
-            return false;
-        };
+        return assignment -> assignment instanceof TemporaryAssignment ta
+                && ta.getExpiresAt().isBefore(LocalDateTime.parse(date));
     }
 }

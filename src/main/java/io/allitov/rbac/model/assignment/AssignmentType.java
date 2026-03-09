@@ -1,5 +1,8 @@
 package io.allitov.rbac.model.assignment;
 
+import lombok.Getter;
+
+@Getter
 public enum AssignmentType {
     PERMANENT("PERMANENT"),
     TEMPORARY("TEMPORARY");
@@ -8,9 +11,5 @@ public enum AssignmentType {
 
     AssignmentType(String value) {
         this.value = value;
-    }
-
-    public String getValue() {
-        return value;
     }
 }
