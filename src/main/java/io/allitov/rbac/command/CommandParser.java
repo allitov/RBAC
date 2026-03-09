@@ -1,5 +1,6 @@
 package io.allitov.rbac.command;
 
+import io.allitov.rbac.log.AuditLog;
 import io.allitov.rbac.system.RBACSystem;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class CommandParser {
     }
 
     public void parseAndExecute(String input, Scanner scanner, RBACSystem system) {
+        AuditLog.log(input, system.getCurrentUser(), "RBAC system", "Details");
         if (StringUtils.isBlank(input)) {
             IO.println("Введена пустая команда.");
             return;

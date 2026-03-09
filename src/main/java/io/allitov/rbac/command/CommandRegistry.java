@@ -6,6 +6,7 @@ import io.allitov.rbac.command.impl.user.UserListCommand;
 import io.allitov.rbac.command.impl.user.UserSearchCommand;
 import io.allitov.rbac.command.impl.user.UserUpdateCommand;
 import io.allitov.rbac.command.impl.user.UserViewCommand;
+import io.allitov.rbac.log.AuditLog;
 
 public final class CommandRegistry {
 
@@ -32,5 +33,6 @@ public final class CommandRegistry {
         parser.registerCommand("help", "Выводит все команды с описанием.", (_, _, _) -> parser.printHelp());
         parser.registerCommand("stats", "Выводит статистику системы.", (_, system, _) -> system.generateStatistics());
         parser.registerCommand("exit", "Выйти из программы.", (_, _, _) -> System.exit(0));
+        parser.registerCommand("audit-log", "Просмотр логов.", (_, _, _) -> AuditLog.printLog());
     }
 }
