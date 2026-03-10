@@ -2,6 +2,7 @@ package io.allitov.rbac.command.impl.user;
 
 import io.allitov.rbac.command.Command;
 import io.allitov.rbac.system.RBACSystem;
+import io.allitov.rbac.util.ConsoleUtils;
 import java.util.Scanner;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,8 +15,8 @@ public class UserUpdateCommand implements Command {
         if (!StringUtils.isBlank(args)) {
             username = args.trim();
         } else {
-            System.out.print("Введите username пользователя, которого нужно обновить: ");
-            username = scanner.nextLine();
+            username =
+                    ConsoleUtils.promptString(scanner, "Введите username пользователя, которого нужно обновить.", true);
         }
 
         if (!system.getUserManager().existsByUsername(username)) {
@@ -24,10 +25,8 @@ public class UserUpdateCommand implements Command {
         }
 
         System.out.println("Введите новые данные:");
-        System.out.print("Новое полное имя: ");
-        String fullName = scanner.nextLine();
-        System.out.print("Новый email: ");
-        String email = scanner.nextLine();
+        String fullName = ConsoleUtils.promptString(scanner, "Новое полное имя", true);
+        String email = ConsoleUtils.promptString(scanner, "Новый email", true);
 
         try {
             system.getUserManager().update(username, fullName, email);
