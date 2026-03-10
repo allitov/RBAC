@@ -3,13 +3,14 @@ package io.allitov.rbac.command;
 import io.allitov.rbac.log.AuditLog;
 import io.allitov.rbac.system.RBACSystem;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 import org.apache.commons.lang3.StringUtils;
 
 public class CommandParser {
 
-    private final Map<String, Command> commands = new HashMap<>();
+    private final Map<String, Command> commands = new LinkedHashMap<>();
     private final Map<String, String> commandDescriptions = new HashMap<>();
 
     public void registerCommand(String name, String description, Command command) {

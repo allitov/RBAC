@@ -5,6 +5,7 @@ import io.allitov.rbac.model.assignment.RoleAssignment;
 import io.allitov.rbac.model.role.Role;
 import io.allitov.rbac.model.user.User;
 import io.allitov.rbac.system.RBACSystem;
+import io.allitov.rbac.util.ConsoleUtils;
 import java.util.List;
 import java.util.Scanner;
 import org.apache.commons.lang3.StringUtils;
@@ -17,8 +18,7 @@ public class UserViewCommand implements Command {
         if (!StringUtils.isBlank(args)) {
             username = args.trim();
         } else {
-            System.out.print("Введите username пользователя: ");
-            username = scanner.nextLine();
+            username = ConsoleUtils.promptString(scanner, "Введите username пользователя", true);
         }
 
         try {
