@@ -1,5 +1,10 @@
 package io.allitov.rbac.command;
 
+import io.allitov.rbac.command.impl.assignment.AssignRoleCommand;
+import io.allitov.rbac.command.impl.assignment.AssignmentActiveCommand;
+import io.allitov.rbac.command.impl.assignment.AssignmentExpiredCommand;
+import io.allitov.rbac.command.impl.assignment.AssignmentExtendCommand;
+import io.allitov.rbac.command.impl.assignment.RevokeRoleCommand;
 import io.allitov.rbac.command.impl.role.RoleAddPermissionCommand;
 import io.allitov.rbac.command.impl.role.RoleCreateCommand;
 import io.allitov.rbac.command.impl.role.RoleDeleteCommand;
@@ -48,6 +53,21 @@ public final class CommandRegistry {
                 "role-remove-permission",
                 "Удалить конкретное право из роли по номеру.",
                 new RoleRemovePermissionCommand());
+
+        // assignment commands
+        parser.registerCommand(
+                "assign-role", "Назначить роль пользователю. Интерактивный режим.", new AssignRoleCommand());
+        parser.registerCommand("revoke-role", "Отозвать активную роль у пользователя.", new RevokeRoleCommand());
+        parser.registerCommand(
+                "assignment-active",
+                "Вывести список всех активных назначений в системе.",
+                new AssignmentActiveCommand());
+        parser.registerCommand(
+                "assignment-expired",
+                "Вывести список всех истёкших временных назначений.",
+                new AssignmentExpiredCommand());
+        parser.registerCommand(
+                "assignment-extend", "Продлить срок действия временного назначения.", new AssignmentExtendCommand());
 
         // util commands
         parser.registerCommand("help", "Выводит все команды с описанием.", (_, _, _) -> parser.printHelp());

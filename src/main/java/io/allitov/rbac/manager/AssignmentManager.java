@@ -42,9 +42,10 @@ public class AssignmentManager {
         return assignmentRepository.findAllActiveAssignments();
     }
 
-    public List<RoleAssignment> getExpiredAssignments() {
+    public List<TemporaryAssignment> getExpiredAssignments() {
         return assignmentRepository.findAll().stream()
                 .filter(assignment -> assignment instanceof TemporaryAssignment ta && ta.isExpired())
+                .map(TemporaryAssignment.class::cast)
                 .toList();
     }
 
