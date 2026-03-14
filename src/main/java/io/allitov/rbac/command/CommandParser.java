@@ -1,7 +1,7 @@
 package io.allitov.rbac.command;
 
+import io.allitov.rbac.RBACSystem;
 import io.allitov.rbac.log.AuditLog;
-import io.allitov.rbac.system.RBACSystem;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;

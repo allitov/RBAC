@@ -1,10 +1,10 @@
 package io.allitov.rbac.command.impl.user;
 
+import io.allitov.rbac.RBACSystem;
 import io.allitov.rbac.command.Command;
 import io.allitov.rbac.filter.user.UserFilter;
 import io.allitov.rbac.filter.user.UserFilters;
 import io.allitov.rbac.model.user.User;
-import io.allitov.rbac.system.RBACSystem;
 import java.util.List;
 import java.util.Scanner;
 

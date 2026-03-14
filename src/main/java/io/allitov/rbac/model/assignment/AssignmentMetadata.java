@@ -1,7 +1,7 @@
 package io.allitov.rbac.model.assignment;
 
-import io.allitov.rbac.model.validator.Validator;
-import io.allitov.rbac.model.validator.impl.AssignmentMetadataValidator;
+import io.allitov.rbac.validator.Validator;
+import io.allitov.rbac.validator.impl.AssignmentMetadataValidator;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Data;

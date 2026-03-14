@@ -1,4 +1,6 @@
-package io.allitov.rbac.model.validator;
+package io.allitov.rbac.validator;
+
+import io.allitov.rbac.validator.rule.ValidationRule;
 
 /**
  * Контракт для реализации логики валидации объектов типа {@code T}.

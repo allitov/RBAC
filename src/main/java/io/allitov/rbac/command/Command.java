@@ -1,6 +1,6 @@
 package io.allitov.rbac.command;
 
-import io.allitov.rbac.system.RBACSystem;
+import io.allitov.rbac.RBACSystem;
 import java.util.Scanner;
 
 @FunctionalInterface

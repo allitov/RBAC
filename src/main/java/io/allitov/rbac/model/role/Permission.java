@@ -1,7 +1,7 @@
 package io.allitov.rbac.model.role;
 
-import io.allitov.rbac.model.validator.Validator;
-import io.allitov.rbac.model.validator.impl.PermissionValidator;
+import io.allitov.rbac.validator.Validator;
+import io.allitov.rbac.validator.impl.PermissionValidator;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
