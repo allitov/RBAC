@@ -1,7 +1,6 @@
 package io.allitov.rbac.validator;
 
 import io.allitov.rbac.validator.rule.ValidationRule;
-
 import java.util.ArrayList;
 import java.util.List;
 

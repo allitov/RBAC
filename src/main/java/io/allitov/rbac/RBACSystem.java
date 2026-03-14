@@ -13,10 +13,9 @@ import io.allitov.rbac.model.user.User;
 import io.allitov.rbac.repository.impl.AssignmentRepository;
 import io.allitov.rbac.repository.impl.RoleRepository;
 import io.allitov.rbac.repository.impl.UserRepository;
+import java.util.Scanner;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Scanner;
 
 @Getter
 @Setter
