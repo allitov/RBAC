@@ -45,6 +45,10 @@ public class RoleManager {
         return roleRepository.findAllRolesWithPermissionAndResource(permissionName, resource);
     }
 
+    public void update(String newName, String newDescription) {
+        roleRepository.update(Role.of(newName, newDescription));
+    }
+
     public void add(Role item) {
         roleRepository.add(item);
     }
