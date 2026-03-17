@@ -1,4 +1,4 @@
-package io.allitov.rbac.model.validator;
+package io.allitov.rbac.validator.rule;
 
 /**
  * Функциональный интерфейс для определения правил валидации объекта.

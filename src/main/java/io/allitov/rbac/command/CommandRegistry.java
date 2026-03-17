@@ -1,5 +1,17 @@
 package io.allitov.rbac.command;
 
+import io.allitov.rbac.command.impl.assignment.AssignRoleCommand;
+import io.allitov.rbac.command.impl.assignment.AssignmentActiveCommand;
+import io.allitov.rbac.command.impl.assignment.AssignmentExpiredCommand;
+import io.allitov.rbac.command.impl.assignment.AssignmentExtendCommand;
+import io.allitov.rbac.command.impl.assignment.RevokeRoleCommand;
+import io.allitov.rbac.command.impl.role.RoleAddPermissionCommand;
+import io.allitov.rbac.command.impl.role.RoleCreateCommand;
+import io.allitov.rbac.command.impl.role.RoleDeleteCommand;
+import io.allitov.rbac.command.impl.role.RoleListCommand;
+import io.allitov.rbac.command.impl.role.RoleRemovePermissionCommand;
+import io.allitov.rbac.command.impl.role.RoleUpdateCommand;
+import io.allitov.rbac.command.impl.role.RoleViewCommand;
 import io.allitov.rbac.command.impl.user.UserCreateCommand;
 import io.allitov.rbac.command.impl.user.UserDeleteCommand;
 import io.allitov.rbac.command.impl.user.UserListCommand;
@@ -28,6 +40,34 @@ public final class CommandRegistry {
                 "user-update", "Обновить данные пользователя. Аргументы: username.", new UserUpdateCommand());
         parser.registerCommand("user-delete", "Удалить пользователя. Аргументы: username.", new UserDeleteCommand());
         parser.registerCommand("user-search", "Найти всех пользователей по фильтрам.", new UserSearchCommand());
+
+        // role commands
+        parser.registerCommand("role-list", "Вывести список всех ролей.", new RoleListCommand());
+        parser.registerCommand("role-create", "Создать новую роль с правами.", new RoleCreateCommand());
+        parser.registerCommand("role-view", "Просмотреть детальную информацию о роли.", new RoleViewCommand());
+        parser.registerCommand("role-update", "Изменить название или описание роли.", new RoleUpdateCommand());
+        parser.registerCommand("role-delete", "Удалить роль по названию.", new RoleDeleteCommand());
+        parser.registerCommand(
+                "role-add-permission", "Добавить новое право к существующей роли.", new RoleAddPermissionCommand());
+        parser.registerCommand(
+                "role-remove-permission",
+                "Удалить конкретное право из роли по номеру.",
+                new RoleRemovePermissionCommand());
+
+        // assignment commands
+        parser.registerCommand(
+                "assign-role", "Назначить роль пользователю. Интерактивный режим.", new AssignRoleCommand());
+        parser.registerCommand("revoke-role", "Отозвать активную роль у пользователя.", new RevokeRoleCommand());
+        parser.registerCommand(
+                "assignment-active",
+                "Вывести список всех активных назначений в системе.",
+                new AssignmentActiveCommand());
+        parser.registerCommand(
+                "assignment-expired",
+                "Вывести список всех истёкших временных назначений.",
+                new AssignmentExpiredCommand());
+        parser.registerCommand(
+                "assignment-extend", "Продлить срок действия временного назначения.", new AssignmentExtendCommand());
 
         // util commands
         parser.registerCommand("help", "Выводит все команды с описанием.", (_, _, _) -> parser.printHelp());

@@ -1,7 +1,7 @@
-package io.allitov.rbac.model.validator.impl;
+package io.allitov.rbac.validator.impl;
 
 import io.allitov.rbac.model.assignment.AssignmentMetadata;
-import io.allitov.rbac.model.validator.CompositeValidator;
+import io.allitov.rbac.validator.CompositeValidator;
 import org.apache.commons.lang3.StringUtils;
 
 /**

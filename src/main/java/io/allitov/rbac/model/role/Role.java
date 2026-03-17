@@ -1,7 +1,7 @@
 package io.allitov.rbac.model.role;
 
-import io.allitov.rbac.model.validator.Validator;
-import io.allitov.rbac.model.validator.impl.RoleValidator;
+import io.allitov.rbac.validator.Validator;
+import io.allitov.rbac.validator.impl.RoleValidator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;

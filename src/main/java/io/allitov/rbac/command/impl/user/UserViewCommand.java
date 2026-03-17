@@ -1,10 +1,10 @@
 package io.allitov.rbac.command.impl.user;
 
+import io.allitov.rbac.RBACSystem;
 import io.allitov.rbac.command.Command;
 import io.allitov.rbac.model.assignment.RoleAssignment;
 import io.allitov.rbac.model.role.Role;
 import io.allitov.rbac.model.user.User;
-import io.allitov.rbac.system.RBACSystem;
 import io.allitov.rbac.util.ConsoleUtils;
 import java.util.List;
 import java.util.Scanner;

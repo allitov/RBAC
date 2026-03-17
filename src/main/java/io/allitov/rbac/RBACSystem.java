@@ -1,5 +1,7 @@
-package io.allitov.rbac.system;
+package io.allitov.rbac;
 
+import io.allitov.rbac.command.CommandParser;
+import io.allitov.rbac.command.CommandRegistry;
 import io.allitov.rbac.manager.AssignmentManager;
 import io.allitov.rbac.manager.RoleManager;
 import io.allitov.rbac.manager.UserManager;
@@ -11,6 +13,7 @@ import io.allitov.rbac.model.user.User;
 import io.allitov.rbac.repository.impl.AssignmentRepository;
 import io.allitov.rbac.repository.impl.RoleRepository;
 import io.allitov.rbac.repository.impl.UserRepository;
+import java.util.Scanner;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -67,5 +70,22 @@ public class RBACSystem {
                - Ролей: %d
                - Назначений: %d
                """.formatted(userManager.count(), roleManager.count(), assignmentManager.count());
+    }
+
+    static void main() {
+        RBACSystem system = new RBACSystem();
+        system.initialize();
+
+        CommandParser parser = new CommandParser();
+        CommandRegistry.registerCommands(parser);
+
+        Scanner scanner = new Scanner(System.in);
+        IO.println("RBAC System Console. Type 'help' for commands.");
+
+        while (true) {
+            IO.print("> ");
+            String input = scanner.nextLine();
+            parser.parseAndExecute(input, scanner, system);
+        }
     }
 }

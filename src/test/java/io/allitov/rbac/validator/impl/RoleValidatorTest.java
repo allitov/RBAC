@@ -1,4 +1,4 @@
-package io.allitov.rbac.model.validator.impl;
+package io.allitov.rbac.validator.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Mockito.when;
 
 import io.allitov.rbac.model.role.Role;
-import io.allitov.rbac.model.validator.ValidationException;
+import io.allitov.rbac.validator.ValidationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
